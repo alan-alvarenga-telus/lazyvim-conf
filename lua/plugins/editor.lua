@@ -1,5 +1,11 @@
 return {
   {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup()
+    end,
+  },
+  {
     "simrat39/symbols-outline.nvim",
     keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
     cmd = "SymbolsOutline",
@@ -27,12 +33,6 @@ return {
         end
       end
       return opts
-    end,
-  },
-  {
-    "max397574/better-escape.nvim",
-    config = function()
-      require("better_escape").setup()
     end,
   },
 }
