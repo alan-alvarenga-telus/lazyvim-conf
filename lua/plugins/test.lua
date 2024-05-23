@@ -15,6 +15,7 @@ return {
       )
       table.insert(opts.adapters, require("rustaceanvim.neotest"))
       table.insert(opts.adapters, require("neotest-zig"))
+      table.insert(opts.adapters, require("neotest-python"))
     end,
   },
 }
