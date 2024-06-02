@@ -1,21 +1,19 @@
 return {
-  {
-    "nvim-neotest/neotest",
-    dependencies = { "nvim-neotest/nvim-nio", "nvim-neotest/neotest-jest", "nvim-neotest/neotest-python" },
-    opts = function(_, opts)
-      table.insert(
-        opts.adapters,
-        require("neotest-jest")({
-          jestConfigFile = "custom.jest.config.ts",
-          env = { CI = true },
-          cwd = function()
-            return vim.fn.getcwd()
-          end,
-        })
-      )
-      table.insert(opts.adapters, require("rustaceanvim.neotest"))
-      table.insert(opts.adapters, require("neotest-zig"))
-      table.insert(opts.adapters, require("neotest-python"))
-    end,
+  "nvim-neotest/neotest",
+  optional = true,
+  dependencies = {
+    "nvim-neotest/nvim-nio",
+    "nvim-neotest/neotest-jest",
+    "nvim-neotest/neotest-python",
+    "rustaceanvim.neotest",
   },
+  opts = function(_, opts)
+    opts.adapters = opts.adapters or {}
+    vim.list_extend(opts.adapters, {
+      require("rustaceanvim.neotest"),
+      require("neotest-zig"),
+      require("neotest-python"),
+      require("neotest-jest"),
+    })
+  end,
 }
