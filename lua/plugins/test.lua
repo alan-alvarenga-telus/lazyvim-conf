@@ -5,7 +5,6 @@ return {
     "nvim-neotest/nvim-nio",
     "nvim-neotest/neotest-jest",
     "nvim-neotest/neotest-python",
-    "rustaceanvim.neotest",
   },
   opts = function(_, opts)
     opts.adapters = opts.adapters or {}
